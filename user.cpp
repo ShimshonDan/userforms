@@ -14,18 +14,18 @@
 
 bool User::checkUsername(std::string userName) const {
 	if (userName.size() < 2)
-		return false;
+		throw ErrorLoggin("Size loggin cannot be less than 2 characters!");
 	for (int i = 0; i < userName.size(); ++i)
 		if (std::isalpha(userName[i]))
 			if (!(std::tolower(userName[i]) >= 'a' && std::tolower(userName[i]) <= 'z'))
-				throw ErrorLoggin("a non-English letter is used");
+				throw ErrorLoggin("a non-English letter is used!");
 	return true;
 }
 
 bool User::checkPassword(std::string Password) const {
 	std::setlocale(LC_ALL, "Ru");
-	if (Password.size() <= 5)
-		return false;
+	if (Password.size() <= 8)
+		throw ErrorPassword("Size password cannot be less than 8 characters!");
 
 	bool countAlpha = 0;
 	bool countPunct = 0;
