@@ -12,17 +12,19 @@
 #define CONST_MAX_LENGHT_PASSWORD 25
 #define getRandom(max) rand()%max
 
-bool User::checkUsername(std::string userName) const {
+bool User::checkUsername(const std::string& userName) const {
 	if (userName.size() < 2)
 		throw ErrorLoggin("Size loggin cannot be less than 2 characters!");
 	for (int i = 0; i < userName.size(); ++i)
 		if (std::isalpha(userName[i]))
-			if (!(std::tolower(userName[i]) >= 'a' && std::tolower(userName[i]) <= 'z'))
+			if (!(std::tolower(userName[i]) >= 'a' && std::tolower(userName[i]) <= 'z')) {
+				std::cout << userName[i] << "\n";
 				throw ErrorLoggin("a non-English letter is used!");
+			}
 	return true;
 }
 
-bool User::checkPassword(std::string Password) const {
+bool User::checkPassword(const std::string& Password) const {
 	std::setlocale(LC_ALL, "Ru");
 	if (Password.size() <= 8)
 		throw ErrorPassword("Size password cannot be less than 8 characters!");
@@ -33,8 +35,10 @@ bool User::checkPassword(std::string Password) const {
 
 	for (int i = 0; i < Password.size(); ++i) {
 		if (std::isalpha(Password[i])) {
-			if (!(std::tolower(Password[i]) <= 'a' && std::tolower(Password[i]) >= 'z'))
+			char p = std::tolower(Password[i]);
+			if (!(p >= 'a' && p <= 'z')) {
 				throw ErrorPassword("A non-English letter is used");
+			}
 			countAlpha = true;
 		}
 
@@ -57,21 +61,43 @@ bool User::checkPassword(std::string Password) const {
 	return true;
 }
 
-User::User(const std::string& nUsername, const std::string& nPassword) {
+User::User(const std::string& nUsername,
+		   const std::string& nPassword,
+		   const std::string& n_name,
+		   const std::string& n_secondname,
+		   const std::string& n_surname,
+		   const std::string& n_numberphone,
+		   short int n_age) :
+		   username{nUsername}, password{nPassword}, 
+		   Person{n_name, n_secondname, n_surname, n_numberphone, n_age}
+{
 	if (checkUsername(nUsername))
-		username = nUsername;
+		this->username = nUsername;
 	if (checkPassword(nPassword))
-		password = nPassword;
+		this->password = nPassword;
 }
 
 void User::setUsername(const std::string& nUsername) {
 	if (checkUsername(nUsername))
-		username = nUsername;
+		this->username = nUsername;
 }
 
 void User::setPassword(const std::string& nPassword) {
 	if (checkPassword(nPassword))
-		password = nPassword;
+		this->password = nPassword;
+}
+
+void User::setDataPerson(const std::string& n_name,
+						 const std::string& n_secondname,
+						 const std::string& n_surname,
+						 const std::string& n_numberphone,
+						 short int n_age)
+{
+	this->setName(n_name);
+	this->setSecondName(n_secondname);
+	this->setSurname(n_surname);
+	this->setNumberphone(n_numberphone);
+	this->setAge(n_age);
 }
 
 void User::randomLogin() {
@@ -86,6 +112,7 @@ void User::randomLogin() {
 		lenghtLogin = getRandom(CONST_MAX_LENGHT_LOGIN + 1);
 
 	std::string loginUser;
+
 	int count_E_symbol = getRandom(lenghtLogin + 1);
 	int count_bE_symbol = 0;
 	int count_sE_symbol = 0;
@@ -122,7 +149,7 @@ void User::randomLogin() {
 			continue;
 		}
 	}
-	username =  loginUser;
+	this->username =  loginUser;
 }
 
 void User::randomPassword() {
@@ -183,6 +210,12 @@ void User::randomPassword() {
 		}
 	}
 	password = passwordUser;
+}
+
+std::string User::getAllData() const {
+	return this->allData() +
+		   "User login: " + this->username + "\n"
+		   "User password: " + this->password + "\n";
 }
 
 #undef CONST_MAX_LENGHT_PASSWORD
