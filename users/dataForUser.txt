@@ -1,0 +1,41 @@
+-----------------------Name-----------------------
+|Oliver                                      Jack|
+|Jack                                       Harry|
+|Harry                                      Jacob|
+|Jacob                                    Charley|
+|-------------------Secondname-------------------|
+|Smith                                      Jones|
+|Jones                                     Taylor|
+|Taylor                                  Williams|
+|Williams                                   Brown|
+|--------------------Surnames--------------------|
+|Yuryevich                         Aleksandrovich|
+|Aleksandrovich                      Anatolyevich|
+|Anatolyevich                         Anatolyevna|
+|Anatolyevna                       Vyacheslavovna|
+|Vyacheslavovna                   Vyacheslavovich|
+|-----------------Numbers phones-----------------|
+|+792413131123                          987645321|
+|987645321                            81999527935|
+|81999527935                        +794213131123|
+|+794213131123                          987564321|
+|987564321                            81992572935|
+|----------------------Ages----------------------|
+|12                                            35|
+|35                                            50|
+|50                                            40|
+|40                                            67|
+|67                                            13|
+|---------------------loggin---------------------|
+|ILdjP                                WOHxOMqEGPQ|
+|WOHxOMqEGPQ                               yAqMEC|
+|yAqMEC                                    g}EZqn|
+|g}EZqn                                       sfx|
+|sfx                                  OoumWLMhiqI|
+|--------------------password--------------------|
+|e)=tHDsONbx+|c}`OVP?      #ZG#MPU%NKWPVG:#BL?NJ)|
+|#ZG#MPU%NKWPVG:#BL?NJ)            W>_d|&Lzc]*Nku|
+|W>_d|&Lzc]*Nku                  boGfDs<XgqruovpY|
+|boGfDs<XgqruovpY                     LIR(--FZ&Q.|
+|LIR(--FZ&Q.                       QN:TO)PS?uYXQ;|
+--------------------------------------------------
